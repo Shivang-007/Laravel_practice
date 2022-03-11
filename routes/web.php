@@ -76,4 +76,5 @@ Route::post("update",[FormController::class,'update']);
 
 
 //Query Builder
-Route::get("getData",[queryController::class,'operation']);
+Route::get("showData",[queryController::class,'operation']);
+
