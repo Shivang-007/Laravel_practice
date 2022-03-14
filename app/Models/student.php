@@ -11,4 +11,14 @@ class student extends Model
     //public $table="studinfo";
     public $table="city";
     public $timestamps=false;
+
+    //mutetors
+    function setNameAttribute($value){
+        return $this->attributes['name']='Mr.'.$value;
+    }
+
+    //Accessors
+    // function getNameAttribute($value){
+    //     return ucFirst($value);
+    // }
 }

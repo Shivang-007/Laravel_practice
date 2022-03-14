@@ -78,3 +78,8 @@ Route::post("update",[FormController::class,'update']);
 //Query Builder
 Route::get("showData",[queryController::class,'operation']);
 
+//accessors
+Route::get("accessors",[queryController::class,'accessors']);
+//mutetors
+Route::get("mute",[queryController::class,'mutetors']);
+

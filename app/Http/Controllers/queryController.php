@@ -4,20 +4,31 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-use App\Models\employee;
+use App\Models\student;
 
 class queryController extends Controller
 {
     //
-    function operation(){
+    function mutetors(){
+      $student= new student;
+      $student->name="bruce";
+      $student->age="20";
+      $student->city="Berlin";
+      $student->save();
+    }
 
+
+    // function accessors(){
+    //   return student::all();
+    // }
+    function operation(){
+          
+    
           $data= DB::table('employees')
           ->orderBy('emp_name','desc')
           ->get();
           return $data;
 
-
-        
         // return DB::table('employees')
         //         ->whereColumn('emp_name','>','emp_dept')       //whereColumn checks wether two column ara equal or not
         //         ->get();
