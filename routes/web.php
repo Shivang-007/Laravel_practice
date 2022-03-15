@@ -1,9 +1,14 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-//use App\Http\Controllers\UserController;
-//use App\Http\Controllers\FormController;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\FormController;
 use App\Http\Controllers\queryController;
+use App\Http\Controllers\RelationController;
+use App\Http\Controllers\ProductController;
+use App\Http\Controllers\CustomerController;
+
+
 
 
 
@@ -82,4 +87,7 @@ Route::get("showData",[queryController::class,'operation']);
 Route::get("accessors",[queryController::class,'accessors']);
 //mutetors
 Route::get("mute",[queryController::class,'mutetors']);
+
+Route::get('relation',[RelationController::class,'index']);
+
 

@@ -28,6 +28,7 @@ class FormController extends Controller
         $student->age=$req->age;
         $student->city=$req->city;
         $student->save();
+        echo "form is submitted";
     }
     function get(){
         $data=student::paginate(5);

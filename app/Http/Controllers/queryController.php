@@ -16,11 +16,9 @@ class queryController extends Controller
       $student->city="Berlin";
       $student->save();
     }
-
-
-    // function accessors(){
-    //   return student::all();
-    // }
+    function accessors(){
+      return student::all();
+    }
     function operation(){
           
     

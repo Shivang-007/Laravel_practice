@@ -13,12 +13,12 @@ class student extends Model
     public $timestamps=false;
 
     //mutetors
-    function setNameAttribute($value){
-        return $this->attributes['name']='Mr.'.$value;
-    }
+    // function setNameAttribute($value){
+    //     return $this->attributes['name']='Mr.'.$value;
+    // }
 
     //Accessors
-    // function getNameAttribute($value){
-    //     return ucFirst($value);
-    // }
+    function getNameAttribute($value){
+        return ucFirst($value);
+    }
 }
