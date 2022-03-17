@@ -31,35 +31,35 @@ Route::get('/', function () {
 // Route::get('/user/{name}', function ($name) {
 //     return view('Hello',["name"=>$name]);
 // });
-Route::view("user","user");
-Route::post("/submit",[UserController::class,'getData']);
-Route::post("/validate",[UserController::class,'validation']);
-Route::view('validate',"formValidate");
+Route::view("user", "user");
+Route::post("/submit", [UserController::class, 'getData']);
+Route::post("/validate", [UserController::class, 'validation']);
+Route::view('validate', "formValidate");
 
 
-Route::get("/table",[UserController::class,'database']);
+Route::get("/table", [UserController::class, 'database']);
 
-Route::get("/ApiData",[UserController::class,'ApiData']);
+Route::get("/ApiData", [UserController::class, 'ApiData']);
 
-Route::get("/submitLogin",[UserController::class,'getFormData']);
+Route::get("/submitLogin", [UserController::class, 'getFormData']);
 
-Route::view("Login","login");
+Route::view("Login", "login");
 
-Route::view('noaccess','noaccess');
-Route::view('home','home');
+Route::view('noaccess', 'noaccess');
+Route::view('home', 'home');
 
-Route::post("/login",[FormController::class,'userLogin']);
- 
-Route::view("form","form");
+Route::post("/login", [FormController::class, 'userLogin']);
 
-Route::view("profile","profile");
+Route::view("form", "form");
 
-Route::view("upload","Fileupload");
-Route::post("/upload",[FormController::class,'upload']);
+Route::view("profile", "profile");
 
-Route::view("language","language");
-ROute::view('data','database');
-Route::post("/send",[FormController::class,'addData']);
+Route::view("upload", "Fileupload");
+Route::post("/upload", [FormController::class, 'upload']);
+
+Route::view("language", "language");
+ROute::view('data', 'database');
+Route::post("/send", [FormController::class, 'addData']);
 
 // Route::get('/language/{name}', function($name) {
 //     App::setlocale($name);
@@ -67,27 +67,30 @@ Route::post("/send",[FormController::class,'addData']);
 // });
 
 Route::get('/logout', function () {
-    if (session()->has('username')){
+    if (session()->has('username')) {
         session()->pull('username');         //For deleting session
     }
     return redirect('form');
 });
 
-Route::view('list','list');
-Route::get("/get",[FormController::class,'get']);
-Route::get("delete/{id}",[FormController::class,'delete']);
-Route::get("update/{id}",[FormController::class,'updateForm']);
-Route::post("update",[FormController::class,'update']);
+Route::view('list', 'list');
+Route::get("/get", [FormController::class, 'get']);
+Route::get("delete/{id}", [FormController::class, 'delete']);
+Route::get("update/{id}", [FormController::class, 'updateForm']);
+Route::post("update", [FormController::class, 'update']);
 
 
 //Query Builder
-Route::get("showData",[queryController::class,'operation']);
+Route::get("showData", [queryController::class, 'operation']);
 
 //accessors
-Route::get("accessors",[queryController::class,'accessors']);
+Route::get("accessors", [queryController::class, 'accessors']);
 //mutetors
-Route::get("mute",[queryController::class,'mutetors']);
+Route::get("mute", [queryController::class, 'mutetors']);
 
-Route::get('relation',[RelationController::class,'index']);
+Route::get('relation', [RelationController::class, 'index']);
 
-
+//Ploymorphic Relation
+Route::get('comment', [RelationController::class, 'comment']);
+Route::get('user', [RelationController::class, 'user']);
+Route::get('post', [RelationController::class, 'post']);
