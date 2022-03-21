@@ -7,6 +7,7 @@ use App\Http\Controllers\queryController;
 use App\Http\Controllers\RelationController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\CustomerController;
+use Illuminate\Support\Str;
 
 
 
@@ -22,6 +23,12 @@ use App\Http\Controllers\CustomerController;
 | contains the "web" middleware group. Now create something great!
 |
 */
+// Fluet String
+ 
+// $data="Hii, lets learn laravel";
+// $data=Str::ucfirst($data);
+// $data=Str::replaceFirst('Hii', 'Hello', $data);
+// echo $data;
 
 Route::get('/', function () {
     return view('welcome');
@@ -94,3 +101,9 @@ Route::get('relation', [RelationController::class, 'index']);
 Route::get('comment', [RelationController::class, 'comment']);
 Route::get('user', [RelationController::class, 'user']);
 Route::get('post', [RelationController::class, 'post']);
+
+//Route Model Binding
+Route::get('bind/{key:name}', [RelationController::class, 'bind']);
+
+//Multiple Database connection
+Route::get("index", [UserController::class, 'index']);

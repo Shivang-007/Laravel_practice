@@ -29,11 +29,16 @@ class RelationController extends Controller
     function user()
     {
         $data = user::find(1)->comment;
-        dd($data);
+        return $data;
     }
     function post()
     {
         $data = Post::find(2)->comment;
         dd($data);
+    }
+
+    //Route Model Binding
+    function bind(Employee $key){
+        return $key;
     }
 }
