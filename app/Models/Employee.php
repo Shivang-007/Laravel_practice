@@ -10,6 +10,7 @@ class Employee extends Model
     use HasFactory;
 
     //One To One Relation
+    public $timestamps=false;
     public function company(){
         return $this->hasOne('App\Models\Company');         //we must have to use hasOne in Primary key(without Foreign key) table 
     }
