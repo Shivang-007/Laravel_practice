@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\cacheController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\FormController;
@@ -80,6 +81,7 @@ Route::get('/logout', function () {
     return redirect('form');
 });
 
+//crud operation
 Route::view('list', 'list');
 Route::get("/get", [FormController::class, 'get']);
 Route::get("delete/{id}", [FormController::class, 'delete']);
@@ -107,3 +109,6 @@ Route::get('bind/{key:name}', [RelationController::class, 'bind']);
 
 //Multiple Database connection
 Route::get("index", [UserController::class, 'index']);
+
+//cache 
+Route::get("cache",[cacheController::class,'cache']);
