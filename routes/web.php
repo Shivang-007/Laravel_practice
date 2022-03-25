@@ -8,6 +8,8 @@ use App\Http\Controllers\queryController;
 use App\Http\Controllers\RelationController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\CustomerController;
+use App\Http\Controllers\CollectionController;
+
 use Illuminate\Support\Str;
 
 
@@ -112,3 +114,23 @@ Route::get("index", [UserController::class, 'index']);
 
 //cache 
 Route::get("cache",[cacheController::class,'cache']);
+
+//email
+// Route::get('/mail',function(){
+//     $to_name="shivang";
+//     $to_email="shivangrathod007@gmail.com";
+//     $data=array('name'=>'elice','body'=>'testing an email using laravel');
+//     Mail::send('mail',$data,function ($message) use ($to_name,$to_email){
+//         $message->to($to_email)
+//         ->subject('web testing email');
+//     });
+//     echo "Email has been sent";
+// });
+
+//event
+Route::get("event",[UserController::class,'task']);
+
+
+
+//collections
+Route::get("/collect", [CollectionController::class, 'index']);

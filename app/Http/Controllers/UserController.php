@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Http;
+use App\Events\TaskEvent;
 
 use App\Models\student;
 
@@ -61,5 +62,9 @@ class UserController extends Controller
       // For multiple Database Connection 
      function index(){
       return DB::connection('mysql2')->table('city')->get();
+    }
+
+    function task(){
+      event(new TaskEvent('Hii how are you!!'));
     }
 }
