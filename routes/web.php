@@ -134,3 +134,23 @@ Route::get("event",[UserController::class,'task']);
 
 //collections
 Route::get("/collect", [CollectionController::class, 'index']);
+
+
+//URl generation
+Route::get('/Contact',[UserController::class,'url_generation'])->name('Contact');
+Route::get('/About',[UserController::class,'url_generation'])->name('About');
+Route::get('/post/{post}/comment/{comment}',function($post,$comment){
+    return "post";
+})->name('post.comment');
+
+// Route::get('secret',function(Request $request){           in this we have to import Illuminate\Http\Request
+//     if(! $request->hasValidSignature()){
+//             abort(401);
+//     }else{
+//     return "this is secret message";
+//     }
+// })->name('secret');
+
+Route::get('secret',function(){                      //using middleware
+    return "this is secret message";
+})->name('secret')->middleware('signed');
