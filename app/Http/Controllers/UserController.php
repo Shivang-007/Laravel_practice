@@ -11,7 +11,7 @@ use App\Models\student;
 
 class UserController extends Controller
 {   
-  
+     
 
     function show(){
         //data=["shivang","amit","tejas"];
@@ -64,7 +64,13 @@ class UserController extends Controller
       return DB::connection('mysql2')->table('city')->get();
     }
 
+    //event
     function task(){
       event(new TaskEvent('Hii how are you!!'));
+    }
+
+    //Url generation
+    function url_generation(){
+      return view('url');
     }
 }
