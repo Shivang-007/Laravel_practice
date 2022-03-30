@@ -9,7 +9,8 @@ use App\Http\Controllers\RelationController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\CollectionController;
-
+use App\Http\Controllers\PhotoController;
+use Faker\Provider\bg_BG\PhoneNumber;
 use Illuminate\Support\Str;
 
 
@@ -64,8 +65,8 @@ Route::view("form", "form");
 
 Route::view("profile", "profile");
 
-Route::view("upload", "Fileupload");
-Route::post("/upload", [FormController::class, 'upload']);
+// Route::view("upload", "Fileupload");
+// Route::post("/upload", [FormController::class, 'upload']);
 
 Route::view("language", "language");
 ROute::view('data', 'database');
@@ -154,3 +155,11 @@ Route::get('/post/{post}/comment/{comment}',function($post,$comment){
 Route::get('secret',function(){                      //using middleware
     return "this is secret message";
 })->name('secret')->middleware('signed');
+
+
+
+
+//Image Upload and Display
+Route::get("/upload", [PhotoController::class, 'create']);
+Route::post("/upload", [PhotoController::class, 'store']);
+Route::get('/download/{image}',[PhotoController::class,'download'])->name('download');
